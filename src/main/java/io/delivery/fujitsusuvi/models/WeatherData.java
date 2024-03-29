@@ -17,7 +17,7 @@ public class WeatherData {
     //defining the WeatherData object
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column (name = "stationName", nullable = false)
     private String stationName;
