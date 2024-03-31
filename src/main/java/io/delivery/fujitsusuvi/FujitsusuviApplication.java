@@ -6,9 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDateTime;
 
+@EnableScheduling
 @SpringBootApplication
 public class FujitsusuviApplication implements CommandLineRunner {
 
@@ -24,7 +29,7 @@ public class FujitsusuviApplication implements CommandLineRunner {
 
         //WeatherData test1 = new WeatherData("Tartu", "wmoCode", 10.7, 3.0, "Rainy", LocalDateTime.now());
         WeatherData test1 = WeatherData.builder()
-                .stationName("Tartu")
+                .stationName("Test-breakpoint")
                 .wmoCode("wmoCode")
                 .airTemperature(11.3)
                 .windSpeed(3.0)

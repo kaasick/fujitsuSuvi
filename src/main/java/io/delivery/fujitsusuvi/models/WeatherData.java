@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "weatherData")
 public class WeatherData {
-    //defining the WeatherData object
+    //defining the WeatherData object, for the database
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
