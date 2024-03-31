@@ -34,5 +34,4 @@ public class WeatherData {
 
     // Getters, setters, constructors done automatically with lombok
 
-
 }

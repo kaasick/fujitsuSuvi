@@ -1,0 +1,28 @@
+A document including further information about the project.
+
+The database is being update every hour, on the 15th minute of the hour (while the app is running). The data is kept there permanently, with each fetch adding more data. The database can be accessed
+locally on "localhost:8080/h2-console", the password is "password" and the name is "jdbc:h2:file:./src/data/weatherdb", if it is of any interest.
+
+When a request is made, the latest weather data for the city of the request will be fetched and then extracted to be used in calculating extra fees for the delivery, in accordance to the given task.
+
+As an OOP approach, the vehicle types have been made into their own classes, with a main abstract "Vehicle" class guiding them all. Same is done with the cities, where the main abstract class is "City"
+The regional fees are based on the city class, where the fees are mapped to their corresponding vehicle types and to get the regional fee, it must be called from the vehicle object, calling its calculateRegionalBaseFee() method.
+
+There are controllers for the weather data, which can be accessed through "localhost:8080/api/weatherData" (or the port the application is running on), which just shows the information, that is in the database.
+The main funcionality comes from the DeliveryFeeController, which can be accessed at "localhost:8080/delivery-fee/{city}/{vehicleType}", which will return the calculated delivery fee.
+
+The delivery fee calculation service "DeliveryFeeService" has the method that provides the main funcionality, calculateFee(). It will take the input of the request, a city and a vehicle, create instances out of those parameters and from those
+will get the latest weather data, to use in the methods that will return their own extra fees, if there are any. In the end, the method returns the sum of all the calculated fees, which is what we are looking for.
+
+The weatherDataFetchService is quite self-explanatory. It's purpose is to fetch the data from the given url of the weather service provider, process that information and store it for all our 3 cities right now.
+
+The object for the database is defined in the WeatherData class, naming the columns, generating IDs.
+
+For tests, in src/test/package/DeliveryFeeServiceTest, I have tested the rarer weather conditions, which usually come from the "phenomenon" attribute.
+For normal request testing, because we only have 3 cities and 3 vehicle types, they have been done by hand.
+
+I think all the methods having been named quite well, there should not be much confusion about them. I do not think anything too fancy is going on in them, but they do work well.
+
+
+
+All in all, the project has been much helpful in terms of learning about SpringBoot and RestTemplates. I hope it meets all presented criteria and serves me well.
